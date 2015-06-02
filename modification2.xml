@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>ISAA:MimeTexISAA</id>
+	<name>MimeTexISAA 1.0</name>
+
+	<file name="$sourcedir/Subs.php">
+		<operation>
+			<search position="before"><![CDATA[			),
+			array(
+				'tag' => 'white',
+				'before' => '<span style="color: white;" class="bbc_color">',
+				'after' => '</span>',
+			),]]></search>
+			<add><![CDATA[
+            array(
+            'tag' => 'tex',
+            'type' => 'unparsed_content',
+            'content' => '<img src="/cgi-bin/mimetex.cgi?$1" alt="$1" border="0" align="absmiddle" />',
+         ),]]></add>
+		</operation>
+	</file>
+	<file name="$sourcedir/Subs-Editor.php">
+		<operation>
+			<search position="before"><![CDATA[			array(
+				'image' => 'flash',
+				'code' => 'flash',
+				'before' => '[flash=200,200]',
+				'after' => '[/flash]',
+				'description' => $txt['flash']
+			),]]></search>
+					<add><![CDATA[			array(
+				'image' => 'tex',
+				'code' => 'tex', 
+				'before' => '[tex]', 
+				'after' => '[/tex]',
+				'description' => $txt['latex']
+			),]]></add>
+	</operation>
+	</file>
+	
+	<file name="$themedir/languages/Modifications.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[//- LaTeX
+$txt['latex'] = 'LaTeX';]]></add>
+		</operation>
+	</file>
+	<file name="$themedir/languages/Modifications.english-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[//- LaTeX
+$txt['latex'] = 'LaTeX';]]></add>
+		</operation>
+	</file>
+	
+	<file name="$themedir/languages/Modifications.italian.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[//- LaTeX
+$txt['latex'] = 'LaTeX';]]></add>
+		</operation>
+	</file>
+	<file name="$themedir/languages/Modifications.italian-utf8.php" error="skip">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[//- LaTeX
+$txt['latex'] = 'LaTeX';]]></add>
+		</operation>
+	</file>
+	
+	
+</modification>
